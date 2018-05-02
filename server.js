@@ -34,64 +34,64 @@ hbs.registerHelper('screamIt', (text) => {
 	return text.toUpperCase();
 })
 
-const  num_cod_postal = { 
-			describe: 'Nembro do CP',
-			demand: true,
-			alias: 'c'
-			}
+//const  num_cod_postal = {
+//			describe: 'Nembro do CP',
+//			demand: true,
+//			alias: 'c'
+//			}
 
 
 
-const 	argv = yargs
-		
-		.command('list', 'List all notes')
-		.command('read', 'read a note',{
-			num_cod_postal: num_cod_postal
-		})
-		
-		.help()	
-		.argv;
+//const 	argv = yargs
+
+//		.command('list', 'List all notes')
+//		.command('read', 'read a note',{
+//			num_cod_postal: num_cod_postal
+//		})
+
+//		.help()
+//		.argv;
 
 
-var command = argv._[0];
+//var command = argv._[0];
 
 
 
-var fetchNotes = () => {
+//var fetchNotes = () => {
+//
+//	try {
+//
+//		var notesString = fs.readFileSync('codigos_postais.json');
+//		return JSON.parse(notesString);
+//
+//	} catch (e) {
+//		return [];
+//	}
+//
+//};
 
-	try {
 
-		var notesString = fs.readFileSync('codigos_postais.json');
-		return JSON.parse(notesString);
-
-	} catch (e) {
-		return [];
-	}
-
-};
-
-
-var getNote = (num_cod_postal) => {
-	var notes = fetchNotes();
-	var cena = String(num_cod_postal);
-	var picked = _.filter(notes, { 'num_cod_postal': cena } );
+//var getNote = (num_cod_postal) => {
+//	var notes = fetchNotes();
+//	var cena = String(num_cod_postal);
+//	var picked = _.filter(notes, { 'num_cod_postal': cena } );
 	//console.log(picked);
 
-	return picked;
-	console.log("reading note", num_cod_postal);
-}
-if (command === 'read') {
-	var note = getNote(argv.num_cod_postal);
-		if (note){
-			console.log("note returned");
-			console.log(note);
-			console.log("note returned");
-		}
-
-		else{
-			console.log('erro')
-		}
-}
+//	return picked;
+//	console.log("reading note", num_cod_postal);
+//}
+//if (command === 'read') {
+// 	var note = getNote(argv.num_cod_postal);
+// 		if (note){
+// 			console.log("note returned");
+// 			console.log(note);
+// 			console.log("note returned");
+// 		}
+//
+// 		else{
+// 			console.log('erro')
+// 		}
+// }
 app.get('/', (req, res) => {
 res.render('home', {
 	pageTitle: 'Home Page',
