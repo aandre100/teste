@@ -106,6 +106,13 @@ app.get('/about', (req,res) => {
 		pageTitle: 'About Page',
 		currentYear: new Date().getFullYear()
 	});
+});
+app.get('/projects', (req,res) =>{
+	res.render('projects',{
+		pageTitle: 'Projects Page',
+		portfolio: 'Portfolio goes here',
+		currentYear: new Date().getFullYear()
+	});
 })
 
 
