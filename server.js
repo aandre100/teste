@@ -5,6 +5,7 @@ const yargs = require("yargs");
 const _ = require("lodash");
 const hbs = require('hbs');
 hbs.registerPartials(__dirname+'/views/partials');
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'hbs');
 
@@ -22,9 +23,9 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use((req, res, next) => {
-res.render('maintenance')
-});
+//app.use((req, res, next) => {
+//res.render('maintenance')
+//});
 app.use(express.static(__dirname+'/public'));
 
 hbs.registerHelper('getCurrentYear', () => {
@@ -121,6 +122,6 @@ app.get('/bad', (req, res) => {
 
 
 
-app.listen(3000, function(){
-	console.log('server running')
+app.listen(port, function(){
+	console.log(`server running ${port}`)
 })

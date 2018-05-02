@@ -2,3 +2,4 @@ node_modules/
 server.log
 package-lock.json
 codigos_postais.json
+bfg-1.13.0.jar
